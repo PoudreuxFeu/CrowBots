@@ -2374,7 +2374,7 @@ async def genshin_profile(inter, uid: str):
 bot.tree.add_command(genshin_group)
 
 # ════════════════════════════════════════════════════════════════
-#  GENSHIN — BUILD (restauré)
+#  GENSHIN — BUILD
 # ════════════════════════════════════════════════════════════════
 
 @genshin_group.command(name="build", description="Affiche l'infographie de build d'un personnage")
