@@ -11,33 +11,33 @@
 ---
 
 ## 📖 Table des matières
-1. [✨ Présentation](#-présentation)
-2. [🎯 Fonctionnalités](#-fonctionnalités)
-3. [⚙️ Installation](#-installation)
-4. [🔑 Configuration](#-configuration)
-5. [🚀 Lancement](#-lancement)
-6. [🖥️ Dashboard Web](#-dashboard-web)
-7. [📜 Commandes](#-commandes)
-8. [🛡️ Système Anti-Raid](#-système-anti-raid)
-9. [🎵 Système Musique](#-système-musique)
-10. [🎮 Tracker de jeux](#-tracker-de-jeux)
-11. [❓ FAQ](#-faq)
+* [✨ Présentation](#-présentation)
+* [🎯 Fonctionnalités](#-fonctionnalités)
+* [⚙️ Installation](#-installation)
+* [🔑 Configuration](#-configuration)
+* [🚀 Lancement](#-lancement)
+* [🖥️ Dashboard Web](#-dashboard-web)
+* [📜 Commandes](#-commandes)
+* [🛡️ Système Anti-Raid](#-système-anti-raid)
+* [🎵 Système Musique](#-système-musique)
+* [🎮 Tracker de jeux](#-tracker-de-jeux)
+* [❓ FAQ](#-faq)
 
 ---
 
 ## ✨ Présentation
-**CrowBot** est un bot Discord complet et open-source développé en Python. Il regroupe dans un seul fichier tout ce dont un serveur Discord a besoin.
+CrowBot est un bot Discord complet et open-source développé en Python. Il regroupe dans un seul fichier tout ce dont un serveur Discord a besoin.
 
-* 🛡️ **Protection avancée** contre les raids, le spam et les comportements abusifs.
-* 🎵 **Lecteur de musique** YouTube et Spotify avec interface graphique.
-* 🎰 **Casino complet** avec plusieurs jeux d'argent.
-* 🎮 **Mini-jeux originaux** et innovants.
-* 📊 **Tracker de stats** pour Valorant, Fortnite, LoL et Apex.
-* 💰 **Économie complète** avec boutique, travail et crime.
-* 📈 **Système de niveaux** avec récompenses automatiques.
-* 🖥️ **Dashboard web** pour gérer le bot depuis ton navigateur.
-* 🎫 **Tickets de support** avec boutons interactifs.
-* 🎉 **Giveaways persistants** qui survivent aux redémarrages.
+* 🛡️ **Protection avancée** contre les raids, le spam et les comportements abusifs
+* 🎵 **Lecteur de musique** YouTube et Spotify avec interface graphique
+* 🎰 **Casino complet** avec plusieurs jeux d'argent
+* 🎮 **Mini-jeux originaux** et innovants
+* 📊 **Tracker de stats** pour Valorant, Fortnite, LoL et Apex
+* 💰 **Économie complète** avec boutique, travail et crime
+* 📈 **Système de niveaux** avec récompenses automatiques
+* 🖥️ **Dashboard web** pour gérer le bot depuis ton navigateur
+* 🎫 **Tickets de support** avec boutons interactifs
+* 🎉 **Giveaways persistants** qui survivent aux redémarrages
 
 ---
 
@@ -53,6 +53,8 @@
 | **💰 Économie** | Solde, Daily, Work, Crime, Give, Boutique, Classement |
 | **📈 Niveaux** | XP automatique, level-up, récompenses de rôles, classement |
 | **🔨 Modération** | Ban, Kick, Mute, TempBan, TempMute, Timeout, Warns, Purge, AutoMod |
+| **📢 Communication** | Annonces, Sondages, Suggestions, Tickets, Giveaways |
+| **✨ Genshin Impact** | Profil via UID et builds depuis infographies locales |
 | **🖥️ Dashboard** | Panel web complet pour configurer le bot sans commandes |
 
 ---
@@ -60,91 +62,145 @@
 ## ⚙️ Installation
 
 ### Prérequis
-* **Python 3.10 ou supérieur**
-* **FFmpeg** (Obligatoire pour la musique) :
-    * *Windows* : `choco install ffmpeg`
-    * *Linux* : `sudo apt install ffmpeg`
-* **Git** (Optionnel)
+Avant de commencer, assure-toi d'avoir installé ces trois choses sur ta machine.
+
+1. **Python 3.10 ou supérieur** Télécharge-le sur [python.org](https://www.python.org/downloads/) et coche bien la case "Add Python to PATH" pendant l'installation.
+
+2. **FFmpeg** (Obligatoire pour la musique)
+   * **Windows (Chocolatey)** : `choco install ffmpeg`
+   * **Linux** : `sudo apt install ffmpeg`
+   * **macOS** : `brew install ffmpeg`
+   * *Vérification* : Tape `ffmpeg -version` dans ton terminal.
+
+3. **Git** (optionnel mais recommandé)
+   Télécharge-le sur [git-scm.com](https://git-scm.com/)
 
 ### Étape 1 — Récupérer le bot
 ```bash
 git clone [https://github.com/ton-pseudo/crowbot.git](https://github.com/ton-pseudo/crowbot.git)
 cd crowbot
 ```
+*(Sinon, télécharge simplement le fichier `bot.py` et place-le dans un dossier vide.)*
 
-### Étape 2 — Installer les dépendances
+### Étape 2 — Installer les dépendances Python
 ```bash
 pip install discord.py yt-dlp PyNaCl aiohttp python-dotenv spotipy flask flask-login
 ```
 
 ### Étape 3 — Créer le bot sur Discord
-1.  Va sur [Discord Developers](https://discord.com/developers/applications).
-2.  Crée une application, va dans l'onglet **Bot**.
-3.  Active les **Privileged Gateway Intents** (Members, Presence, Message Content).
-4.  Récupère ton **Token**.
+1. Va sur [discord.com/developers/applications](https://discord.com/developers/applications)
+2. Clique sur "New Application" et nomme-la **CrowBot**
+3. Onglet **Bot** : Clique sur "Add Bot"
+4. Clique sur "Reset Token", copie-le et garde-le précieusement
+5. Active les options : **Server Members Intent**, **Message Content Intent**, **Presence Intent**
+6. Onglet **OAuth2** -> **URL Generator** : Coche `bot` et `applications.commands`
+7. Permissions : Coche `Administrator`, copie le lien et invite le bot sur ton serveur
 
 ---
 
 ## 🔑 Configuration
-Crée un fichier `.env` à la racine :
+Crée un fichier nommé `.env` dans le même dossier que `bot.py` :
+
 ```env
-DISCORD_TOKEN=votre_token_ici
-DASHBOARD_SECRET=cle_aleatoire
-DASHBOARD_ADMIN_PASS=votre_mot_de_passe
+DISCORD_TOKEN=colle_ton_token_ici
+DASHBOARD_SECRET=mets_nimporte_quelle_longue_chaine_aleatoire_ici
+DASHBOARD_ADMIN_PASS=ton_mot_de_passe_pour_le_dashboard
 DASHBOARD_PORT=5000
+SPOTIFY_CLIENT_ID=optionnel
+SPOTIFY_CLIENT_SECRET=optionnel
+HENRIK_API_KEY=optionnel_pour_valorant
+RIOT_API_KEY=optionnel_pour_lol
+APEX_API_KEY=optionnel_pour_apex
 ```
+
+### Où obtenir les clés optionnelles
+| Service | Site | Gratuit |
+| :--- | :--- | :--- |
+| **Spotify** | developer.spotify.com/dashboard | Oui |
+| **Valorant** | docs.henrikdev.xyz | Oui |
+| **LoL** | developer.riotgames.com | Oui |
+| **Apex** | apexlegendsapi.com | Oui |
 
 ---
 
 ## 🚀 Lancement
+Dans ton terminal :
 ```bash
-python crowbot.py
+python bot.py
 ```
-Le bot affichera l'URL du Dashboard (par défaut `http://localhost:5000`).
+Si tout fonctionne :
+```text
+🌐 Dashboard démarré sur http://localhost:5000
+🔑 Mot de passe: ton_mot_de_passe
+✅ Bot prêt : CrowBot#1234
+```
+*Note : Les commandes slash peuvent mettre jusqu'à une heure à apparaître la première fois.*
 
 ---
 
-## 📜 Commandes (Extraits)
+## 🖥️ Dashboard Web
+Ouvre ton navigateur sur `http://localhost:5000`. Connecte-toi avec le mot de passe défini dans ton `.env`.
+
+* **Accueil** : Latence, uptime, musique en cours.
+* **Serveurs** : Statut Anti-Raid par serveur.
+* **Économie & XP** : Classements complets.
+* **Modération** : Gestion des warns et tickets.
+
+---
+
+## 📜 Commandes
 
 ### 🛡️ Anti-Raid
 | Commande | Description | Permission |
 | :--- | :--- | :--- |
 | `/antiraid setup` | Configurer la détection de raid | Admin |
+| `/antiraid automod` | Anti-liens, anti-caps, anti-mentions | Admin |
+| `/antiraid whitelist` | Ajouter un rôle à la whitelist | Admin |
 | `/antiraid status` | Voir la configuration actuelle | Manage Guild |
-| `/antiraid unlock` | Déverrouiller le serveur | Admin |
+
+### 🔨 Modération
+| Commande | Description | Permission |
+| :--- | :--- | :--- |
+| `/admin ban` | Bannir un membre | Ban Members |
+| `/admin timeout` | Timeout Discord natif | Moderate Members |
+| `/admin clearwarn` | Effacer les warns | Admin |
+| `/admin purge` | Supprimer des messages | Manage Messages |
+
+### 💰 Économie & Casino
+* `/eco solde`, `/eco daily`, `/eco work`, `/eco crime`.
+* `/casino slots`, `/casino blackjack`, `/casino roulette`, `/casino horse`.
 
 ### 🎵 Musique
-| Commande | Description |
-| :--- | :--- |
-| `/music play` | Jouer une musique (YouTube/Spotify) |
-| `/music queue` | Voir la file d'attente |
-| `/music nowplaying` | Barre de progression en direct |
-
-*(Consultez l'aide en jeu `/help` pour la liste complète des 100+ commandes)*
+* `/music play`, `/music skip`, `/music stop`, `/music queue`, `/music nowplaying`.
 
 ---
 
 ## 🛡️ Système Anti-Raid
-CrowBot vérifie automatiquement l'âge du compte et le flux de nouveaux membres.
-* **Sanctions progressives :**
-    1. Avertissement
-    2. Mute (1m)
-    3. Timeout (10m)
-    4. Ban automatique (après 5 infractions)
+CrowBot surveille l'âge du compte et le flux de nouveaux membres.
+1. **Âge du compte** : Expulsion automatique si le compte est trop récent.
+2. **Détection Raid** : Si trop de membres rejoignent, le bot passe en mode Lock, Kick ou Ban selon réglage.
+
+**Sanctions AutoMod :**
+* 1 Infraction : Avertissement
+* 2 Infractions : Mute 60s
+* 3 Infractions : Timeout 10m
+* 5 Infractions : Ban automatique
 
 ---
 
 ## 🎮 Tracker de jeux
-* **Valorant :** `/tracker valorant [pseudo]#[tag]`
-* **Apex :** `/tracker apex [pseudo] [plateforme]`
-* **Fortnite :** `/tracker fortnite [pseudo]`
+* **Valorant** : `/tracker valorant [pseudo]#[tag]`
+* **Fortnite** : `/tracker fortnite [pseudo]`
+* **LoL** : `/tracker lol [RiotID]#[tag]`
+* **Apex** : `/tracker apex [pseudo]`
 
 ---
 
 ## ❓ FAQ
-**Les commandes slash n'apparaissent pas ?** Discord peut mettre jusqu'à une heure pour propager les commandes globales. Redémarrez le bot et patientez.
-
-**La musique ne se lance pas ?** Vérifiez que FFmpeg est bien dans votre PATH système.
+**Commandes invisibles ?** Attends 1h ou redémarre Discord.  
+**Musique HS ?** Vérifie FFmpeg avec `ffmpeg -version`.  
+**Dashboard inaccessible ?** Vérifie que le port 5000 est libre.  
+**Données perdues ?** Ne supprime jamais le dossier `data/`.
 
 ---
 *Développé par l'équipe CrowBot. Merci d'utiliser notre outil !*
