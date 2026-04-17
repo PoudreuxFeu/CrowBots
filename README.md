@@ -77,7 +77,7 @@ Avant de commencer, assure-toi d'avoir installé ces trois choses sur ta machine
 
 ### Étape 1 — Récupérer le bot
 ```bash
-git clone [[https://github.com/PoudreuxFeu/CrowBots.git]](https://github.com/PoudreuxFeu/CrowBots.git)
+git clone [https://github.com/PoudreuxFeu/CrowBots.git](https://github.com/PoudreuxFeu/CrowBots.git)
 cd crowbots
 ```
 *(Sinon, télécharge simplement le fichier `bot.py` et place-le dans un dossier vide.)*
